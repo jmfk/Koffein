@@ -1,0 +1,31 @@
+import XCTest
+@testable import Koffein
+
+final class SessionLengthTests: XCTestCase {
+    func testFiniteSessionEndDates() {
+        let start = Date(timeIntervalSince1970: 1_000)
+
+        XCTAssertEqual(SessionLength.thirtyMinutes.endDate(from: start), start.addingTimeInterval(1_800))
+        XCTAssertEqual(SessionLength.oneHour.endDate(from: start), start.addingTimeInterval(3_600))
+        XCTAssertEqual(SessionLength.twoHours.endDate(from: start), start.addingTimeInterval(7_200))
+        XCTAssertEqual(SessionLength.fourHours.endDate(from: start), start.addingTimeInterval(14_400))
+    }
+
+    func testIndefiniteSessionHasNoEndDate() {
+        XCTAssertNil(SessionLength.indefinitely.endDate(from: Date()))
+    }
+
+    @MainActor
+    func testPowerAssertionStartsAndStops() {
+        let controller = PowerAssertionController()
+
+        controller.start(mode: .system, length: .indefinitely)
+        XCTAssertTrue(controller.isActive)
+        XCTAssertEqual(controller.activeMode, .system)
+        XCTAssertNil(controller.errorMessage)
+
+        controller.stop()
+        XCTAssertFalse(controller.isActive)
+        XCTAssertNil(controller.activeMode)
+    }
+}
