@@ -1,14 +1,16 @@
 # Koffein
 
+<img src="Artwork/KoffeinIcon.png" alt="Koffein app icon" width="160">
+
 Koffein is a small, native macOS menu-bar app that keeps your Mac awake when you need it—and gets out of the way when you don't.
 
 ## Features
 
 - Keep the Mac awake while allowing the display to sleep.
 - Keep both the Mac and display awake.
-- Choose 30 minutes, 1 hour, 2 hours, 4 hours, or indefinitely.
+- Choose 30 minutes, 1 hour, 2 hours, 4 hours, or 8 hours.
 - See a live remaining-time indicator.
-- Optionally launch at login.
+- Launch at login without automatically enabling a keep-awake session.
 - No analytics, accounts, network access, or administrator privileges.
 
 Koffein uses macOS IOKit power assertions. It prevents idle sleep only: closing a MacBook lid, choosing Sleep, a critically low battery, and other system-required sleep events still take precedence.
@@ -40,7 +42,7 @@ xcodebuild -project Koffein.xcodeproj \
 
 ## How it works
 
-Koffein creates a native power-management assertion using `IOPMAssertionCreateWithDescription` and releases it when the session ends, you stop it, or the app exits. It does not simulate mouse or keyboard input and does not alter your global Energy settings.
+Koffein creates a native power-management assertion using `IOPMAssertionCreateWithDescription` and releases it when the selected session ends, you stop it, or the app exits. Every session has a finite timeout. It does not simulate mouse or keyboard input and does not alter your global Energy settings.
 
 The stable internal workload identifier is `r7m4x9`; the Koffein name remains a replaceable display identity.
 

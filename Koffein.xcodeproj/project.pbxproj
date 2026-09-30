@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47A4389FD00CDE6FA9B545FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 894D9B245C518B005283D6CB /* Assets.xcassets */; };
 		9187EDCC38AB301A003DE647 /* KoffeinSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C173B0F5F7BC1DB2CD1EC1 /* KoffeinSettings.swift */; };
+		935A553A4D9FD88731090B7D /* LaunchAtLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C53AB70538CC38A0358488 /* LaunchAtLoginManager.swift */; };
 		9981FD6CF2D6378519F1382F /* PowerAssertionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EF59BC4C72AE192B683CB2 /* PowerAssertionController.swift */; };
 		E362BDCC216A853693984FE8 /* SessionLengthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458BF2859E1798AF6D1122CA /* SessionLengthTests.swift */; };
 		E5BC8115BC8DA55C73E8A976 /* KoffeinMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F600661957AFCEF08D938B6 /* KoffeinMenu.swift */; };
@@ -25,9 +27,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		11C53AB70538CC38A0358488 /* LaunchAtLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAtLoginManager.swift; sourceTree = "<group>"; };
 		1949F272DA77BF42E47DDAFF /* KoffeinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoffeinApp.swift; sourceTree = "<group>"; };
 		3F600661957AFCEF08D938B6 /* KoffeinMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoffeinMenu.swift; sourceTree = "<group>"; };
 		458BF2859E1798AF6D1122CA /* SessionLengthTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionLengthTests.swift; sourceTree = "<group>"; };
+		894D9B245C518B005283D6CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99C173B0F5F7BC1DB2CD1EC1 /* KoffeinSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoffeinSettings.swift; sourceTree = "<group>"; };
 		B1F3BF2A73DF131C458E11A9 /* Koffein.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Koffein.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF5008EDE9FA906BEF91DFE1 /* KoffeinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KoffeinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,9 +68,11 @@
 		C2D0980CBB1C8708948949E1 /* Koffein */ = {
 			isa = PBXGroup;
 			children = (
+				894D9B245C518B005283D6CB /* Assets.xcassets */,
 				1949F272DA77BF42E47DDAFF /* KoffeinApp.swift */,
 				3F600661957AFCEF08D938B6 /* KoffeinMenu.swift */,
 				99C173B0F5F7BC1DB2CD1EC1 /* KoffeinSettings.swift */,
+				11C53AB70538CC38A0358488 /* LaunchAtLoginManager.swift */,
 				D1EF59BC4C72AE192B683CB2 /* PowerAssertionController.swift */,
 			);
 			path = Koffein;
@@ -98,6 +104,7 @@
 			buildConfigurationList = 7B072D1562ACE08068EA9AFC /* Build configuration list for PBXNativeTarget "Koffein" */;
 			buildPhases = (
 				25886FFD392D04296D386097 /* Sources */,
+				62262146C01BE21A073FDE8D /* Resources */,
 			);
 			buildRules = (
 			);
@@ -149,6 +156,17 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		62262146C01BE21A073FDE8D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47A4389FD00CDE6FA9B545FF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		25886FFD392D04296D386097 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -157,6 +175,7 @@
 				F62C874F37FE590C323FC5CB /* KoffeinApp.swift in Sources */,
 				E5BC8115BC8DA55C73E8A976 /* KoffeinMenu.swift in Sources */,
 				9187EDCC38AB301A003DE647 /* KoffeinSettings.swift in Sources */,
+				935A553A4D9FD88731090B7D /* LaunchAtLoginManager.swift in Sources */,
 				9981FD6CF2D6378519F1382F /* PowerAssertionController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -186,7 +205,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Koffein;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
@@ -196,7 +215,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.r7m4x9.macos;
 				PRODUCT_NAME = Koffein;
 				SDKROOT = macosx;
@@ -245,7 +264,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Koffein;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
@@ -255,7 +274,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.r7m4x9.macos;
 				PRODUCT_NAME = Koffein;
 				SDKROOT = macosx;

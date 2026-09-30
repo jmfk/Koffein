@@ -4,6 +4,10 @@ import SwiftUI
 struct KoffeinApp: App {
     @StateObject private var power = PowerAssertionController()
 
+    init() {
+        LaunchAtLoginManager.configureDefaultIfNeeded()
+    }
+
     var body: some Scene {
         MenuBarExtra {
             KoffeinMenu(power: power)

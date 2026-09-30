@@ -9,17 +9,18 @@ final class SessionLengthTests: XCTestCase {
         XCTAssertEqual(SessionLength.oneHour.endDate(from: start), start.addingTimeInterval(3_600))
         XCTAssertEqual(SessionLength.twoHours.endDate(from: start), start.addingTimeInterval(7_200))
         XCTAssertEqual(SessionLength.fourHours.endDate(from: start), start.addingTimeInterval(14_400))
+        XCTAssertEqual(SessionLength.eightHours.endDate(from: start), start.addingTimeInterval(28_800))
     }
 
-    func testIndefiniteSessionHasNoEndDate() {
-        XCTAssertNil(SessionLength.indefinitely.endDate(from: Date()))
+    func testEverySessionHasAFiniteTimeout() {
+        XCTAssertTrue(SessionLength.allCases.allSatisfy { $0.interval > 0 })
     }
 
     @MainActor
     func testPowerAssertionStartsAndStops() {
         let controller = PowerAssertionController()
 
-        controller.start(mode: .system, length: .indefinitely)
+        controller.start(mode: .system, length: .oneHour)
         XCTAssertTrue(controller.isActive)
         XCTAssertEqual(controller.activeMode, .system)
         XCTAssertNil(controller.errorMessage)

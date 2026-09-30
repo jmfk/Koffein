@@ -36,7 +36,7 @@ enum SessionLength: String, CaseIterable, Identifiable {
     case oneHour
     case twoHours
     case fourHours
-    case indefinitely
+    case eightHours
 
     var id: Self { self }
 
@@ -46,22 +46,22 @@ enum SessionLength: String, CaseIterable, Identifiable {
         case .oneHour: "1 hour"
         case .twoHours: "2 hours"
         case .fourHours: "4 hours"
-        case .indefinitely: "Indefinitely"
+        case .eightHours: "8 hours"
         }
     }
 
-    var interval: TimeInterval? {
+    var interval: TimeInterval {
         switch self {
         case .thirtyMinutes: 30 * 60
         case .oneHour: 60 * 60
         case .twoHours: 2 * 60 * 60
         case .fourHours: 4 * 60 * 60
-        case .indefinitely: nil
+        case .eightHours: 8 * 60 * 60
         }
     }
 
-    func endDate(from startDate: Date) -> Date? {
-        interval.map { startDate.addingTimeInterval($0) }
+    func endDate(from startDate: Date) -> Date {
+        startDate.addingTimeInterval(interval)
     }
 }
 
@@ -86,7 +86,7 @@ final class PowerAssertionController: ObservableObject {
     func start(mode: KeepAwakeMode, length: SessionLength) {
         stop()
 
-        let timeout = length.interval ?? 0
+        let timeout = length.interval
         var newAssertionID = IOPMAssertionID(0)
         let result = IOPMAssertionCreateWithDescription(
             mode.assertionType,
@@ -127,7 +127,7 @@ final class PowerAssertionController: ObservableObject {
     }
 
     var remainingText: String {
-        guard let endDate else { return "Until turned off" }
+        guard let endDate else { return "Inactive" }
         let remaining = max(0, endDate.timeIntervalSince(now))
         return Duration.seconds(remaining).formatted(
             .time(pattern: remaining >= 3600 ? .hourMinute : .minuteSecond)
